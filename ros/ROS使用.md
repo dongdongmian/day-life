@@ -35,7 +35,7 @@ rospack:获取包的信息  `rospack help` 得到使用方法
 roscd:将`ROS`工作目录直接跳转到目录下(中间可能间隔好几个目录)
 roscd 只寻找在你的 ROS_PACKAGE_PATH 中存在的路径目录
 `echo $ROS_PACKAGE_PATH` 可以添加路径,中间用 `:` 隔开
-![roscd](sy0.png)
+![roscd](img/sy0.png)
 
 rosls: 列出文件夹的内容,和 roscd 相像
 
@@ -117,13 +117,13 @@ eg : `rosrun turtlesim turtlesim_node`
 --------------
 **turtle 背后发生的故事**
 
-![node_list..png](node_list.png)
+![node_list..png](img/node_list.png)
 当运行上述命令之后,可以看到除了 rosout 节点,还有两个节点,那么这两个节点是怎么通信的呢
 
 teleop_turtle 在一个话题上发布按键输入消息，而 turtlesim 则订阅该话题以接收该消息。下面让我们使用rqt_graph来显示当前运行的节点和话题.
 
 运行 `rosrun rqt_graph rqt_graph`,结果显示:
-![rosgraph](rosgraph.png)
+![rosgraph](img/rosgraph.png)
 /turtle1/cmd_vel 是话题
 
 **rostopic**
@@ -179,7 +179,7 @@ rosed [package_name] [filename]
  <run_depend>message_runtime</run_depend>`
 
 3. 在 CMakeLists.txt 文件中
-	* 利用 find_packag 函数增加 `message_generation` 依赖
+	* 利用 find_package 函数增加 `message_generation` 依赖
 	* catkin_package 函数中设置运行依赖 `CATKIN_DEPENDS message_runtime`
 	* 增加消息文件到喜那个相应的代码中
         ```
